@@ -1,44 +1,14 @@
 <div class="container">
   <div class="col">
-    <h3>{{title}}</h3>
-    <hr/>
-    <form class="form-row" >
-      <div clas="form-group col-md-2">
-        <input type="text" name="nombre" id="nombre" placeholder="nombre"  class="form-control" [(ngModel)]="nombreInput" >    
-
-      </div>
-
-      <div clas="form-group col-md-2">
-        <input type="text" name="apellido" id="apellido" placeholder="apellido"  class="form-control" [(ngModel)]="apellidoInput">    
-
-      </div>
-
-      <div class="col">
-        
-        <button  type="submit"  class="btn btn-primary" (click)="agregarPersona()" > Enviar </button>
-
-      </div>
-
-    </form>
-
-
-
+    <h3>{{ titulo }}</h3>
   </div>
-</div>
-
-<br/>
-<br/>
-
-
-
-
-
-<div class="container">
-  <div class="row">
-    <div class="col">
-      <div *ngFor="let persona of personas; let i = index">
-        {{ i }} {{ persona.nombre }} {{ persona.apellido }}
-      </div>
-    </div>
-  </div>
+  <hr />
+  <app-formulario></app-formulario>
+  <hr />
+  <app-persona
+    *ngFor="let personaElemento of personas; let i = index"
+    [persona]="personaElemento"
+    [indice]="i"
+  >
+  </app-persona>
 </div>
